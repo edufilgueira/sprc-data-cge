@@ -1,0 +1,34 @@
+pt-BR:
+  activerecord:
+    attributes:
+      integration/real_states/real_state:
+        manager_id: Unidade gestora
+        property_type_id: Tipo da propriedade
+        occupation_type_id: Tipo da ocupação
+        service_id: ID
+        descricao_imovel: Descrição
+        estado: Estado
+        municipio: Município
+        area_projecao_construcao: Área de projeção da construção
+        area_medida_in_loco: Área medida in loco
+        area_registrada: Área registrada
+        frente: Frente
+        fundo: Fundo
+        lateral_direita: Lateral direita
+        lateral_esquerda: Lateral esquerda
+        taxa_ocupacao: Taxa de ocupação
+        fracao_ideal: Fração ideal
+        numero_imovel: Número do imóvel
+        utm_zona: UTM Zona
+        bairro: Bairro
+        cep: CEP
+        endereco: Endereço
+        complemento: Complemento
+        lote: Lote
+        quadra: Quadra
+
+  integration/real_states:
+    spreadsheet:
+      worksheets:
+        default:
+          title: 'Bens Imóveis %{month}-%{year}'

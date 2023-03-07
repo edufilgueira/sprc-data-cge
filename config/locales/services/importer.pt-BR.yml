@@ -1,0 +1,62 @@
+pt-BR:
+  services:
+    importer:
+      log:
+        access: 'Falha ao acessar o arquivo %{filename} no endereço FTP: %{address} e diretório: %{dir} - %{e}'
+        end: Importação finalizada
+        error: "Falha na importação: %{e}"
+        fail: 'Falha de importação na linha %{line}'
+        start: Importação iniciada
+        soap_fault:  'Falha de comunicação com webservice no registo %{line} - %{error}'
+        validation_fail: 'Falha de importação no registo %{line} - %{error}'
+
+        additive: "[CONTRACTS] - %{line} aditivos importados"
+        adjustment: "[CONTRACTS] - %{line} ajustes importados"
+        contract: "[CONTRACTS] - %{line} contratos e convênios importados"
+        financial: "[CONTRACTS] - %{line} empenhos e pagamentos importados"
+        infringement: "[CONTRACTS] - %{line} inadimplências importadas"
+
+        creditor: '[CREDITORS] - %{line} registros de dados de credores foram processados'
+        city_undertaking: '[CITY_UNDERTAKING] - %{line} registros de empreendimentos de municipios foram processados'
+        dae: '[CONTRUCTIONS] %{line} obras importadas'
+        der: '[CONTRUCTIONS] %{line} obras importadas'
+
+        domain: '[DOMAIN] %{line} registros da tabela de domínio importados'
+
+        eparcerias: '[EPARCERIAS] %{line} convênios importados'
+
+        ned: '[EXPENSES] - %{line} registros NED foram processados'
+        nld: '[EXPENSES] - %{line} registros NLD foram processados'
+        npd: '[EXPENSES] - %{line} registros NPD foram processados'
+        npf: '[EXPENSES] - %{line} registros NPF foram processados'
+        budget_balance: '[EXPENSES] - %{line} registros de Saldo Orçamentário foram processados'
+
+        organ: '[ORGANS] - %{line} registros de dados de órgãos foram processados'
+
+        proceeds: '[SERVERS] %{lines} registros de proventos de servidores foram processados'
+        proceed_types: '[SERVERS] %{lines} registros de tipos de proventos foram processados'
+        registrations: '[SERVERS] - %{lines} registros de matrículas foram processados'
+        server: '[SERVERS] - %{lines} registros de servidores foram processados'
+
+        purchase: '[PURCHASES] - %{line} registros de compras foram processados'
+
+        real_state: '[REAL_STATES] - %{line} registros de bens imóveis foram processados'
+
+        revenue: "[REVENUES] - %{lines} receitas processadas para a conta %{account}"
+        axis: '[AXES] - %{line} registros de dados de eixos foram processados'
+        theme: '[THEMES] - %{line} registros de dados de temas foram processados'
+        strategic_indicator: '[RESULTS] - %{line} registros de dados de consultoria de resultados (Indicadores estratégicos) foram processados'
+        thematic_indicator: '[RESULTS] - %{line} registros de dados de consultoria de resultados (Indicadores temáticos) foram processados'
+
+        macroregion: '[MACROREGIONS] - %{line} registros de dados de investimentos por macroregiões foram processados'
+
+        outsorcing:  '[OUTSOURCING] - %{line} registros de dados de terceirizados foram processados'
+        entity: '[OUTSOURCING] - %{line} Entidades/Instituições foram processados'
+        monthly_cost: '[OUTSOURCING] - %{line} terceirizados foram processados. Orgão %{organ}'
+
+        # ----
+        # PPA
+        # ----
+        ppa_source_axis_theme: '[PPA::Source::AxisTheme] - %{line} registros de dados de eixos foram processados'
+        ppa_source_region: '[PPA::Source::Region] - %{line} registros de dados de regiões foram processados'
+        ppa_source_guideline: '[PPA::Source::Guideline] - %{line} registros de dados de diretrizes foram processados'

@@ -1,0 +1,16 @@
+pt-BR:
+  activerecord:
+    errors:
+      messages:
+        blank: Campo obrigatório.
+
+  transparency:
+    outsourcing:
+      monthly_costs:
+        presenter:
+          header:
+            nome: Nome
+            orgao: Órgão
+            categoria: Categoria
+            vlr_salario_base: Salário Base
+            vlr_custo_total: Custo Total

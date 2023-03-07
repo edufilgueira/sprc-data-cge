@@ -1,0 +1,14 @@
+%table	
+	%tr{style: "text-align:left"}
+		%th= 'Classe'
+		%th= 'Status'
+		%th= 'Ultima Importação'
+		%th= 'Ultima Atualização'
+
+	- for item in @array_hash_result
+		%tr
+			%td= item[:class]
+			%td{style: "color: #{status_color(item['status'])};"}= item['status']
+			%td= time_parser(item['last_importation'])
+			%td= time_parser(item['updated_at'])
+

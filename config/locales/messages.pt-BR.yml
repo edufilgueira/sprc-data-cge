@@ -1,0 +1,8 @@
+#
+# Arquivo de localização para mensagens em geral e compartilhadas.
+#
+
+pt-BR:
+  messages:
+    content:
+      undefined: Indefinido

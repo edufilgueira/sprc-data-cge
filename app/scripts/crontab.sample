@@ -1,0 +1,29 @@
+# Diariamente, às 01:00am, 06:00am, 19:00pm, atualiza informações de despesas (NPF, NED, NLD, NPD, BudgetBalance).
+0 1,6,19 * * * /app/sprc-data/current/app/scripts/expenses_daily_update.sh
+
+# Diariamente, às 23:00pm, atualiza informações de receitas. (Receitas do Poder Executivo, Transferências e Receitas Registradas)
+0 23 * * * /app/sprc-data/current/app/scripts/revenues_daily_update.sh
+
+# Diariamente, às 04:30am, 20:00pm, atualiza os contratos que sofreram alterações desde a última sincroniazação.
+30 4,20 * * * /app/sprc-data/current/app/scripts/contracts_daily_update.sh
+
+# Diariamente, às 05:00am, as 21:00pm aciona o worker e importa os contratos da última data de assinatura até a data atual
+0 5,21 * * * /app/sprc-data/current/app/scripts/contracts_import.sh
+
+# Diariamente, às 05:30am, atualiza apenas os convênios ativos com infos do eparceria.
+30 5 * * * /app/sprc-data/current/app/scripts/eparcerias_daily_update.sh
+
+# Semanalmente, sábado às 01am, atualiza todos os convênios com infos do eparceria.
+0 1 * * SAT /app/sprc-data/current/app/scripts/eparcerias_weekly_update.sh
+
+# Semanalmente, sábado às 01am, atualiza todos os convênios com infos do eparceria.
+0 1 * * SAT /app/sprc-data/current/app/scripts/city_undertakings_daily_update.sh
+
+# Diariamente, às 19:00pm, atualiza bens imóveis.
+0 19 * * * /app/sprc-data/current/app/scripts/real_states_daily_update.sh
+
+# Diariamente, às 20:00pm, atualiza obras (dae e der).
+0 20 * * * /app/sprc-data/current/app/scripts/constructions_daily_update.sh
+
+# Diariamente, às 2:50am, atualiza credores.
+50 2 * * * /app/sprc-data/current/app/scripts/creditors_daily_update.sh

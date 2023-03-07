@@ -1,0 +1,14 @@
+pt-BR:
+  activerecord:
+    attributes:
+      integration/revenues/revenue:
+        unidade: Unidade
+        organ_title: Unidade
+        poder: Poder
+        administracao: Administração
+        conta_contabil: Conta contabil
+        valor_debito: Valor débito
+        valor_credito: Valor crédito
+        month: Mês
+        year: Ano
+        account_configuration_title: Tipo de receita

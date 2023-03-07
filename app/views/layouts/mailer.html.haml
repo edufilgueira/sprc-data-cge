@@ -1,0 +1,20 @@
+!!!
+%html{lang: 'pt-BR'}
+  %head
+    %meta{ content: 'text/html; charset=UTF-8', 'http-equiv': 'Content-Type' }/
+
+            
+
+  %body
+    .container{style: 'min-width: 1100px;'}
+
+      = yield
+
+      -# footer
+      %br
+      .footer
+        .footer-content
+          .row
+            .col-12{ style: 'text-align: center' }
+              %span
+                = t('app.copyright', year: Date.today.year)

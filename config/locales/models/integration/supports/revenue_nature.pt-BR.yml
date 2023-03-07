@@ -1,0 +1,34 @@
+pt-BR:
+  activerecord:
+    attributes:
+      integration/supports/revenue_nature:
+        secretary: Secretaria
+        organ: Órgão
+        codigo_consolidado: Tipo de receita
+        codigo_categoria_economica: Categoria econômica
+        codigo_origem: Origem
+        codigo_subfonte: Subfonte
+        codigo_rubrica: Rubrica
+        codigo_aliena: Alínea
+        codigo_subaliena: Subalínea
+
+        transfer_required: Transferências obrigatórias
+        transfer_voluntary: Transferências voluntárias
+
+  integration/supports/revenue_nature:
+    node_types_views:
+      'secretary/organ/consolidado/categoria_economica/origem/subfonte/rubrica/alinea/subalinea': '(Padrão) Secretaria > Órgão > Categoria Econômica, ...'
+      'consolidado/secretary/organ': 'Tipo da Receita > Secretaria > Órgão'
+      'codigo_categoria_economica/secretary/organ': 'Categoria Econômica > Secretaria > Órgão'
+      'origem/secretary/organ': 'Origem > Secretaria > Órgão'
+      'subfonte/secretary/organ': 'Subfonte > Secretaria > Órgão'
+      'rubrica/secretary/organ': 'Rubrica > Secretaria > Órgão'
+      'alinea/secretary/organ': 'Alínea > Secretaria > Órgão'
+      'alinea/rubrica/subfonte/origem/categoria_economica/consolidado/organ': 'Alínea > Rubrica > Subfonte > Origem > Categoria Econômica > Tipo da Receita > Órgão'
+
+      'secretary/organ/transfer': 'Secretaria > Órgão > Tipo de Transferência'
+      'secretary/transfer/organ': 'Secretaria > Tipo de Transferência > Órgão'
+      'secretary/transfer': 'Secretaria > Tipo de Transferência'
+      'organ/transfer': 'Órgão > Tipo de Transferência'
+      'transfer/secretary': 'Tipo de Transferência > Secretaria'
+      'transfer/organ': 'Tipo de Transferência > Órgão'

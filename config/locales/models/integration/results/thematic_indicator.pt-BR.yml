@@ -1,0 +1,24 @@
+pt-BR:
+  activerecord:
+    attributes:
+      integration/results/thematic_indicator:
+        eixo: Eixo
+        tema: Tema
+        resultado: Resultado
+        indicador: Indicador
+        unidade: Unidade
+        sigla_orgao: Sigla do órgão
+        orgao: Órgão
+        valores_realizados: Valores realizados
+        valores_programados: Valores programados
+        organ_title: Órgão
+        axis_title: Eixo
+        theme_title: Tema
+
+  integration/results/thematic_indicator:
+    spreadsheet:
+      worksheets:
+        default:
+          title: 'Indicadores temáticos %{month}-%{year}'
+          short_title: 'Ind. temáticos %{month}-%{year}'
+

@@ -1,0 +1,10 @@
+pt-BR:
+  admin:
+    integrations:
+      expenses:
+
+        cards:
+          neds:
+            index: Visualizar dados
+            title: NED
+            text: Notas de empenho de despesas

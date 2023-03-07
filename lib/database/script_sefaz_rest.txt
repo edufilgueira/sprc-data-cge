@@ -1,0 +1,1942 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 12.8
+-- Dumped by pg_dump version 12.9
+
+-- Started on 2022-01-11 14:38:51 UTC
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- TOC entry 9 (class 2615 OID 3956817)
+-- Name: sefaz_rest; Type: SCHEMA; Schema: -; Owner: postgres
+--
+
+CREATE SCHEMA sefaz_rest;
+
+
+ALTER SCHEMA sefaz_rest OWNER TO postgres;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- TOC entry 335 (class 1259 OID 3969518)
+-- Name: acao; Type: TABLE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE TABLE sefaz_rest.acao (
+    id integer NOT NULL,
+    codigo character varying,
+    codigoprograma character varying,
+    titulo character varying,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE sefaz_rest.acao OWNER TO postgres;
+
+--
+-- TOC entry 334 (class 1259 OID 3969516)
+-- Name: acao_id_seq; Type: SEQUENCE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE SEQUENCE sefaz_rest.acao_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE sefaz_rest.acao_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4228 (class 0 OID 0)
+-- Dependencies: 334
+-- Name: acao_id_seq; Type: SEQUENCE OWNED BY; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER SEQUENCE sefaz_rest.acao_id_seq OWNED BY sefaz_rest.acao.id;
+
+
+--
+-- TOC entry 293 (class 1259 OID 3956843)
+-- Name: categoria_economica; Type: TABLE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE TABLE sefaz_rest.categoria_economica (
+    id integer NOT NULL,
+    codigo character varying,
+    titulo character varying,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE sefaz_rest.categoria_economica OWNER TO postgres;
+
+--
+-- TOC entry 292 (class 1259 OID 3956841)
+-- Name: categoria_economica_id_seq; Type: SEQUENCE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE SEQUENCE sefaz_rest.categoria_economica_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE sefaz_rest.categoria_economica_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4230 (class 0 OID 0)
+-- Dependencies: 292
+-- Name: categoria_economica_id_seq; Type: SEQUENCE OWNED BY; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER SEQUENCE sefaz_rest.categoria_economica_id_seq OWNED BY sefaz_rest.categoria_economica.id;
+
+
+--
+-- TOC entry 297 (class 1259 OID 3957146)
+-- Name: credor; Type: TABLE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE TABLE sefaz_rest.credor (
+    id bigint NOT NULL,
+    codigo character varying,
+    nome character varying,
+    endereco character varying,
+    uf character varying,
+    cep character varying,
+    telefone character varying,
+    telefone2 character varying,
+    "telefoneCelular" character varying,
+    "codigoMunicipio" character varying,
+    "nomeMunicipio" character varying,
+    bairro character varying,
+    "pisPasepNIT" character varying,
+    email character varying,
+    "dataAtual" timestamp without time zone,
+    status character varying,
+    "dataCadastro" timestamp without time zone,
+    internacional boolean,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE sefaz_rest.credor OWNER TO postgres;
+
+--
+-- TOC entry 296 (class 1259 OID 3957144)
+-- Name: credor_id_seq; Type: SEQUENCE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE SEQUENCE sefaz_rest.credor_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE sefaz_rest.credor_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4232 (class 0 OID 0)
+-- Dependencies: 296
+-- Name: credor_id_seq; Type: SEQUENCE OWNED BY; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER SEQUENCE sefaz_rest.credor_id_seq OWNED BY sefaz_rest.credor.id;
+
+
+--
+-- TOC entry 299 (class 1259 OID 3957157)
+-- Name: dispositivo_legal; Type: TABLE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE TABLE sefaz_rest.dispositivo_legal (
+    id integer NOT NULL,
+    codigo character varying,
+    titulo character varying,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE sefaz_rest.dispositivo_legal OWNER TO postgres;
+
+--
+-- TOC entry 298 (class 1259 OID 3957155)
+-- Name: dispositivo_legal_id_seq; Type: SEQUENCE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE SEQUENCE sefaz_rest.dispositivo_legal_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE sefaz_rest.dispositivo_legal_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4234 (class 0 OID 0)
+-- Dependencies: 298
+-- Name: dispositivo_legal_id_seq; Type: SEQUENCE OWNED BY; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER SEQUENCE sefaz_rest.dispositivo_legal_id_seq OWNED BY sefaz_rest.dispositivo_legal.id;
+
+
+--
+-- TOC entry 336 (class 1259 OID 4010769)
+-- Name: empenho; Type: TABLE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE TABLE sefaz_rest.empenho (
+    id bigint,
+    codcontrato character varying,
+    modalidade character varying,
+    codigo character varying,
+    codigodocalterado character varying,
+    codprocesso character varying,
+    statusdocumento character varying,
+    codigoug character varying,
+    nomeug character varying,
+    codigogestao character varying,
+    codfonte character varying,
+    codnatureza character varying,
+    codigocredor character varying,
+    nomecredor character varying,
+    dataemissao timestamp without time zone,
+    datacancelamento timestamp without time zone,
+    datacontabilizacao timestamp without time zone,
+    valor numeric(18,2),
+    observacao character varying,
+    tipoalteracao character varying,
+    codclassificacao character varying,
+    coddetalhamentofonte character varying,
+    codparcela character varying,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE sefaz_rest.empenho OWNER TO postgres;
+
+--
+-- TOC entry 295 (class 1259 OID 3956939)
+-- Name: empenho_classificador; Type: TABLE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE TABLE sefaz_rest.empenho_classificador (
+    id bigint NOT NULL,
+    id_empenho bigint NOT NULL,
+    "codigoTipoClassificador" integer,
+    "nomeTipoClassificador" character varying,
+    "nomeClassificador" character varying,
+    "valoresClassificador" numeric(18,2),
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE sefaz_rest.empenho_classificador OWNER TO postgres;
+
+--
+-- TOC entry 294 (class 1259 OID 3956937)
+-- Name: empenho_classificador_id_seq; Type: SEQUENCE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE SEQUENCE sefaz_rest.empenho_classificador_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE sefaz_rest.empenho_classificador_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4237 (class 0 OID 0)
+-- Dependencies: 294
+-- Name: empenho_classificador_id_seq; Type: SEQUENCE OWNED BY; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER SEQUENCE sefaz_rest.empenho_classificador_id_seq OWNED BY sefaz_rest.empenho_classificador.id;
+
+
+--
+-- TOC entry 303 (class 1259 OID 3957184)
+-- Name: fonte_recurso; Type: TABLE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE TABLE sefaz_rest.fonte_recurso (
+    id integer NOT NULL,
+    codigo character varying,
+    titulo character varying,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE sefaz_rest.fonte_recurso OWNER TO postgres;
+
+--
+-- TOC entry 301 (class 1259 OID 3957172)
+-- Name: fonte_recurso_detalhe; Type: TABLE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE TABLE sefaz_rest.fonte_recurso_detalhe (
+    id integer NOT NULL,
+    codigo character varying,
+    titulo character varying,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE sefaz_rest.fonte_recurso_detalhe OWNER TO postgres;
+
+--
+-- TOC entry 300 (class 1259 OID 3957170)
+-- Name: fonte_recurso_detalhe_id_seq; Type: SEQUENCE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE SEQUENCE sefaz_rest.fonte_recurso_detalhe_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE sefaz_rest.fonte_recurso_detalhe_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4240 (class 0 OID 0)
+-- Dependencies: 300
+-- Name: fonte_recurso_detalhe_id_seq; Type: SEQUENCE OWNED BY; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER SEQUENCE sefaz_rest.fonte_recurso_detalhe_id_seq OWNED BY sefaz_rest.fonte_recurso_detalhe.id;
+
+
+--
+-- TOC entry 302 (class 1259 OID 3957182)
+-- Name: fonte_recurso_id_seq; Type: SEQUENCE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE SEQUENCE sefaz_rest.fonte_recurso_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE sefaz_rest.fonte_recurso_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4241 (class 0 OID 0)
+-- Dependencies: 302
+-- Name: fonte_recurso_id_seq; Type: SEQUENCE OWNED BY; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER SEQUENCE sefaz_rest.fonte_recurso_id_seq OWNED BY sefaz_rest.fonte_recurso.id;
+
+
+--
+-- TOC entry 305 (class 1259 OID 3957201)
+-- Name: funcao; Type: TABLE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE TABLE sefaz_rest.funcao (
+    id integer NOT NULL,
+    codigo character varying,
+    titulo character varying,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE sefaz_rest.funcao OWNER TO postgres;
+
+--
+-- TOC entry 304 (class 1259 OID 3957199)
+-- Name: funcao_id_seq; Type: SEQUENCE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE SEQUENCE sefaz_rest.funcao_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE sefaz_rest.funcao_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4243 (class 0 OID 0)
+-- Dependencies: 304
+-- Name: funcao_id_seq; Type: SEQUENCE OWNED BY; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER SEQUENCE sefaz_rest.funcao_id_seq OWNED BY sefaz_rest.funcao.id;
+
+
+--
+-- TOC entry 307 (class 1259 OID 3957213)
+-- Name: grupo_natureza_despesa; Type: TABLE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE TABLE sefaz_rest.grupo_natureza_despesa (
+    id integer NOT NULL,
+    codigo character varying,
+    titulo character varying,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE sefaz_rest.grupo_natureza_despesa OWNER TO postgres;
+
+--
+-- TOC entry 306 (class 1259 OID 3957211)
+-- Name: grupo_natureza_despesa_id_seq; Type: SEQUENCE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE SEQUENCE sefaz_rest.grupo_natureza_despesa_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE sefaz_rest.grupo_natureza_despesa_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4245 (class 0 OID 0)
+-- Dependencies: 306
+-- Name: grupo_natureza_despesa_id_seq; Type: SEQUENCE OWNED BY; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER SEQUENCE sefaz_rest.grupo_natureza_despesa_id_seq OWNED BY sefaz_rest.grupo_natureza_despesa.id;
+
+
+--
+-- TOC entry 309 (class 1259 OID 3957228)
+-- Name: id_uso; Type: TABLE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE TABLE sefaz_rest.id_uso (
+    id integer NOT NULL,
+    codigo character varying,
+    titulo character varying
+);
+
+
+ALTER TABLE sefaz_rest.id_uso OWNER TO postgres;
+
+--
+-- TOC entry 308 (class 1259 OID 3957226)
+-- Name: id_uso_id_seq; Type: SEQUENCE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE SEQUENCE sefaz_rest.id_uso_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE sefaz_rest.id_uso_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4247 (class 0 OID 0)
+-- Dependencies: 308
+-- Name: id_uso_id_seq; Type: SEQUENCE OWNED BY; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER SEQUENCE sefaz_rest.id_uso_id_seq OWNED BY sefaz_rest.id_uso.id;
+
+
+--
+-- TOC entry 341 (class 1259 OID 4014247)
+-- Name: liquidacao_documentos_fiscais; Type: TABLE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE TABLE sefaz_rest.liquidacao_documentos_fiscais (
+    id integer NOT NULL,
+    tipo character varying,
+    data timestamp without time zone,
+    valor numeric(18,2),
+    numero character varying,
+    id_liquidacao bigint,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE sefaz_rest.liquidacao_documentos_fiscais OWNER TO postgres;
+
+--
+-- TOC entry 340 (class 1259 OID 4014245)
+-- Name: iquidacao_documentos_fiscais_id_seq; Type: SEQUENCE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE SEQUENCE sefaz_rest.iquidacao_documentos_fiscais_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE sefaz_rest.iquidacao_documentos_fiscais_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4249 (class 0 OID 0)
+-- Dependencies: 340
+-- Name: iquidacao_documentos_fiscais_id_seq; Type: SEQUENCE OWNED BY; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER SEQUENCE sefaz_rest.iquidacao_documentos_fiscais_id_seq OWNED BY sefaz_rest.liquidacao_documentos_fiscais.id;
+
+
+--
+-- TOC entry 311 (class 1259 OID 3957257)
+-- Name: item_patrimonial; Type: TABLE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE TABLE sefaz_rest.item_patrimonial (
+    id integer NOT NULL,
+    codigo character varying,
+    titulo character varying,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE sefaz_rest.item_patrimonial OWNER TO postgres;
+
+--
+-- TOC entry 310 (class 1259 OID 3957255)
+-- Name: item_patrimonial_id_seq; Type: SEQUENCE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE SEQUENCE sefaz_rest.item_patrimonial_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE sefaz_rest.item_patrimonial_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4251 (class 0 OID 0)
+-- Dependencies: 310
+-- Name: item_patrimonial_id_seq; Type: SEQUENCE OWNED BY; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER SEQUENCE sefaz_rest.item_patrimonial_id_seq OWNED BY sefaz_rest.item_patrimonial.id;
+
+
+--
+-- TOC entry 337 (class 1259 OID 4013746)
+-- Name: liquidacao; Type: TABLE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE TABLE sefaz_rest.liquidacao (
+    id integer,
+    codigo character varying,
+    classificadores character varying,
+    codigodocalterado character varying,
+    codprocesso character varying,
+    statusdocumento character varying,
+    codigoug character varying,
+    nomeug character varying,
+    codigogestao character varying,
+    codfonte character varying,
+    codnatureza character varying,
+    codigocredor character varying,
+    nomecredor character varying,
+    dataemissao timestamp without time zone,
+    datacancelamento timestamp without time zone,
+    datacontabilizacao timestamp without time zone,
+    valor numeric(18,2),
+    observacao character varying,
+    tipoalteracao character varying,
+    codclassificacao character varying,
+    itens character varying,
+    codigoempenhovinculado character varying,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE sefaz_rest.liquidacao OWNER TO postgres;
+
+--
+-- TOC entry 339 (class 1259 OID 4014233)
+-- Name: liquidacao_retencao; Type: TABLE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE TABLE sefaz_rest.liquidacao_retencao (
+    id bigint NOT NULL,
+    id_liquidacao bigint,
+    tipo character varying,
+    valor numeric(18,2),
+    credor character varying,
+    justificativa character varying,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE sefaz_rest.liquidacao_retencao OWNER TO postgres;
+
+--
+-- TOC entry 338 (class 1259 OID 4014231)
+-- Name: liquidacao_retencao_id_seq; Type: SEQUENCE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE SEQUENCE sefaz_rest.liquidacao_retencao_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE sefaz_rest.liquidacao_retencao_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4254 (class 0 OID 0)
+-- Dependencies: 338
+-- Name: liquidacao_retencao_id_seq; Type: SEQUENCE OWNED BY; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER SEQUENCE sefaz_rest.liquidacao_retencao_id_seq OWNED BY sefaz_rest.liquidacao_retencao.id;
+
+
+--
+-- TOC entry 313 (class 1259 OID 3957272)
+-- Name: modalidade_aplicacao; Type: TABLE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE TABLE sefaz_rest.modalidade_aplicacao (
+    id integer NOT NULL,
+    codigo character varying,
+    titulo character varying,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE sefaz_rest.modalidade_aplicacao OWNER TO postgres;
+
+--
+-- TOC entry 312 (class 1259 OID 3957270)
+-- Name: modalidade_aplicacao_id_seq; Type: SEQUENCE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE SEQUENCE sefaz_rest.modalidade_aplicacao_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE sefaz_rest.modalidade_aplicacao_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4256 (class 0 OID 0)
+-- Dependencies: 312
+-- Name: modalidade_aplicacao_id_seq; Type: SEQUENCE OWNED BY; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER SEQUENCE sefaz_rest.modalidade_aplicacao_id_seq OWNED BY sefaz_rest.modalidade_aplicacao.id;
+
+
+--
+-- TOC entry 315 (class 1259 OID 3957293)
+-- Name: natureza_despesa; Type: TABLE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE TABLE sefaz_rest.natureza_despesa (
+    id integer NOT NULL,
+    codigo character varying,
+    titulo character varying
+);
+
+
+ALTER TABLE sefaz_rest.natureza_despesa OWNER TO postgres;
+
+--
+-- TOC entry 314 (class 1259 OID 3957291)
+-- Name: natureza_despesa_id_seq; Type: SEQUENCE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE SEQUENCE sefaz_rest.natureza_despesa_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE sefaz_rest.natureza_despesa_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4258 (class 0 OID 0)
+-- Dependencies: 314
+-- Name: natureza_despesa_id_seq; Type: SEQUENCE OWNED BY; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER SEQUENCE sefaz_rest.natureza_despesa_id_seq OWNED BY sefaz_rest.natureza_despesa.id;
+
+
+--
+-- TOC entry 317 (class 1259 OID 3957304)
+-- Name: natureza_receita; Type: TABLE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE TABLE sefaz_rest.natureza_receita (
+    id integer NOT NULL,
+    codigo character varying,
+    titulo character varying,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    ano character varying
+);
+
+
+ALTER TABLE sefaz_rest.natureza_receita OWNER TO postgres;
+
+--
+-- TOC entry 316 (class 1259 OID 3957302)
+-- Name: natureza_receita_id_seq; Type: SEQUENCE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE SEQUENCE sefaz_rest.natureza_receita_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE sefaz_rest.natureza_receita_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4260 (class 0 OID 0)
+-- Dependencies: 316
+-- Name: natureza_receita_id_seq; Type: SEQUENCE OWNED BY; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER SEQUENCE sefaz_rest.natureza_receita_id_seq OWNED BY sefaz_rest.natureza_receita.id;
+
+
+--
+-- TOC entry 342 (class 1259 OID 4017729)
+-- Name: ordem_bancaria_orcamentaria; Type: TABLE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE TABLE sefaz_rest.ordem_bancaria_orcamentaria (
+    id integer,
+    codigo character varying,
+    classificadores character varying,
+    codigodocalterado character varying,
+    codprocesso character varying,
+    statusdocumento character varying,
+    codigoug character varying,
+    nomeug character varying,
+    codigogestao character varying,
+    codfonte character varying,
+    codnatureza character varying,
+    codigocredor character varying,
+    nomecredor character varying,
+    dataemissao timestamp without time zone,
+    datacancelamento timestamp without time zone,
+    datacontabilizacao timestamp without time zone,
+    valor numeric(18,2),
+    observacao character varying,
+    codclassificacao character varying,
+    itens character varying,
+    enviostatus character varying,
+    codigobancofavorecido character varying,
+    numeroagenciabancariafavorecido character varying,
+    numerocontabancariafavorecido character varying,
+    codigobancoemitente character varying,
+    numeroagenciabancariaemitente character varying,
+    numerocontabancariaemitente character varying,
+    codigoregistroenvio character varying,
+    codigougpagadora character varying,
+    guiasdevolucao character varying,
+    tipoob character varying,
+    prioridade character varying,
+    codigone character varying,
+    codigonl character varying,
+    codigopdo character varying,
+    dataregistroenvio timestamp without time zone,
+    dataregistroretorno timestamp without time zone,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE sefaz_rest.ordem_bancaria_orcamentaria OWNER TO postgres;
+
+--
+-- TOC entry 319 (class 1259 OID 3957316)
+-- Name: produto; Type: TABLE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE TABLE sefaz_rest.produto (
+    id integer NOT NULL,
+    codigo character varying,
+    titulo character varying,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE sefaz_rest.produto OWNER TO postgres;
+
+--
+-- TOC entry 318 (class 1259 OID 3957314)
+-- Name: produto_id_seq; Type: SEQUENCE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE SEQUENCE sefaz_rest.produto_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE sefaz_rest.produto_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4263 (class 0 OID 0)
+-- Dependencies: 318
+-- Name: produto_id_seq; Type: SEQUENCE OWNED BY; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER SEQUENCE sefaz_rest.produto_id_seq OWNED BY sefaz_rest.produto.id;
+
+
+--
+-- TOC entry 321 (class 1259 OID 3957329)
+-- Name: programa_governo; Type: TABLE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE TABLE sefaz_rest.programa_governo (
+    id integer NOT NULL,
+    codigo character varying,
+    titulo character varying,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE sefaz_rest.programa_governo OWNER TO postgres;
+
+--
+-- TOC entry 320 (class 1259 OID 3957327)
+-- Name: programa_governo_id_seq; Type: SEQUENCE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE SEQUENCE sefaz_rest.programa_governo_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE sefaz_rest.programa_governo_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4265 (class 0 OID 0)
+-- Dependencies: 320
+-- Name: programa_governo_id_seq; Type: SEQUENCE OWNED BY; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER SEQUENCE sefaz_rest.programa_governo_id_seq OWNED BY sefaz_rest.programa_governo.id;
+
+
+--
+-- TOC entry 323 (class 1259 OID 3957341)
+-- Name: regiao_administrativa; Type: TABLE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE TABLE sefaz_rest.regiao_administrativa (
+    id integer NOT NULL,
+    codigo character varying,
+    titulo character varying,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE sefaz_rest.regiao_administrativa OWNER TO postgres;
+
+--
+-- TOC entry 322 (class 1259 OID 3957339)
+-- Name: regiao_administrativa_id_seq; Type: SEQUENCE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE SEQUENCE sefaz_rest.regiao_administrativa_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE sefaz_rest.regiao_administrativa_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4267 (class 0 OID 0)
+-- Dependencies: 322
+-- Name: regiao_administrativa_id_seq; Type: SEQUENCE OWNED BY; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER SEQUENCE sefaz_rest.regiao_administrativa_id_seq OWNED BY sefaz_rest.regiao_administrativa.id;
+
+
+--
+-- TOC entry 333 (class 1259 OID 3957435)
+-- Name: saldo_orcamentario; Type: TABLE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE TABLE sefaz_rest.saldo_orcamentario (
+    id integer NOT NULL,
+    classifreduzida character varying,
+    classificacaoacao character varying,
+    classificacaocompleta character varying,
+    codacao character varying,
+    coddetafonte character varying,
+    codesfera character varying,
+    codfonte character varying,
+    codfuncao character varying,
+    codiduso character varying,
+    codlocalizadorgasto character varying,
+    codnatureza character varying,
+    codprograma character varying,
+    codsubfuncao character varying,
+    codug character varying,
+    coduo character varying,
+    nummes character varying,
+    valanulado numeric(18,2),
+    valcontido numeric(18,2),
+    valcontidoanulado numeric(18,2),
+    valdescentralizado numeric(18,2),
+    valdescentralizadoanulado numeric(18,2),
+    valempenhado numeric(18,2),
+    valempenhadoanulado numeric(18,2),
+    valinicial numeric(18,2),
+    valliquidado numeric(18,2),
+    valliquidadoanulado numeric(18,2),
+    valliquidadoretido numeric(18,2),
+    valliquidadoretidoanulado numeric(18,2),
+    valpago numeric(18,2),
+    valpagoanulado numeric(18,2),
+    valsuplementado numeric(18,2),
+    valtransferidoconcedido numeric(18,2),
+    valtransferidorecebido numeric(18,2),
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE sefaz_rest.saldo_orcamentario OWNER TO postgres;
+
+--
+-- TOC entry 332 (class 1259 OID 3957433)
+-- Name: saldo_orcamentario_id_seq; Type: SEQUENCE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE SEQUENCE sefaz_rest.saldo_orcamentario_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE sefaz_rest.saldo_orcamentario_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4269 (class 0 OID 0)
+-- Dependencies: 332
+-- Name: saldo_orcamentario_id_seq; Type: SEQUENCE OWNED BY; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER SEQUENCE sefaz_rest.saldo_orcamentario_id_seq OWNED BY sefaz_rest.saldo_orcamentario.id;
+
+
+--
+-- TOC entry 325 (class 1259 OID 3957352)
+-- Name: subfuncao; Type: TABLE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE TABLE sefaz_rest.subfuncao (
+    id integer NOT NULL,
+    codigo character varying,
+    titulo character varying,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE sefaz_rest.subfuncao OWNER TO postgres;
+
+--
+-- TOC entry 324 (class 1259 OID 3957350)
+-- Name: subfuncao_id_seq; Type: SEQUENCE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE SEQUENCE sefaz_rest.subfuncao_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE sefaz_rest.subfuncao_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4271 (class 0 OID 0)
+-- Dependencies: 324
+-- Name: subfuncao_id_seq; Type: SEQUENCE OWNED BY; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER SEQUENCE sefaz_rest.subfuncao_id_seq OWNED BY sefaz_rest.subfuncao.id;
+
+
+--
+-- TOC entry 327 (class 1259 OID 3957363)
+-- Name: tipo_retencao; Type: TABLE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE TABLE sefaz_rest.tipo_retencao (
+    id integer NOT NULL,
+    codigo character varying,
+    titulo character varying,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE sefaz_rest.tipo_retencao OWNER TO postgres;
+
+--
+-- TOC entry 326 (class 1259 OID 3957361)
+-- Name: tipo_retencao_id_seq; Type: SEQUENCE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE SEQUENCE sefaz_rest.tipo_retencao_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE sefaz_rest.tipo_retencao_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4273 (class 0 OID 0)
+-- Dependencies: 326
+-- Name: tipo_retencao_id_seq; Type: SEQUENCE OWNED BY; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER SEQUENCE sefaz_rest.tipo_retencao_id_seq OWNED BY sefaz_rest.tipo_retencao.id;
+
+
+--
+-- TOC entry 344 (class 1259 OID 4045329)
+-- Name: token; Type: TABLE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE TABLE sefaz_rest.token (
+    id bigint NOT NULL,
+    data_token timestamp without time zone,
+    valor_token character varying
+);
+
+
+ALTER TABLE sefaz_rest.token OWNER TO postgres;
+
+--
+-- TOC entry 343 (class 1259 OID 4045327)
+-- Name: token_id_seq; Type: SEQUENCE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE SEQUENCE sefaz_rest.token_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE sefaz_rest.token_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4275 (class 0 OID 0)
+-- Dependencies: 343
+-- Name: token_id_seq; Type: SEQUENCE OWNED BY; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER SEQUENCE sefaz_rest.token_id_seq OWNED BY sefaz_rest.token.id;
+
+
+--
+-- TOC entry 329 (class 1259 OID 3957379)
+-- Name: unidade_gestora; Type: TABLE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE TABLE sefaz_rest.unidade_gestora (
+    id integer NOT NULL,
+    codigo character varying,
+    titulo character varying,
+    cnpj character varying,
+    codigoorgao character varying,
+    sigla character varying,
+    tipoadministracao character varying,
+    tipoug character varying,
+    gestao character varying,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE sefaz_rest.unidade_gestora OWNER TO postgres;
+
+--
+-- TOC entry 328 (class 1259 OID 3957377)
+-- Name: unidade_gestora_id_seq; Type: SEQUENCE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE SEQUENCE sefaz_rest.unidade_gestora_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE sefaz_rest.unidade_gestora_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4277 (class 0 OID 0)
+-- Dependencies: 328
+-- Name: unidade_gestora_id_seq; Type: SEQUENCE OWNED BY; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER SEQUENCE sefaz_rest.unidade_gestora_id_seq OWNED BY sefaz_rest.unidade_gestora.id;
+
+
+--
+-- TOC entry 331 (class 1259 OID 3957392)
+-- Name: unidade_orcamentaria; Type: TABLE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE TABLE sefaz_rest.unidade_orcamentaria (
+    id integer NOT NULL,
+    codigoug character varying,
+    codigo character varying,
+    titulo character varying,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE sefaz_rest.unidade_orcamentaria OWNER TO postgres;
+
+--
+-- TOC entry 330 (class 1259 OID 3957390)
+-- Name: unidade_orcamentaria_id_seq; Type: SEQUENCE; Schema: sefaz_rest; Owner: postgres
+--
+
+CREATE SEQUENCE sefaz_rest.unidade_orcamentaria_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE sefaz_rest.unidade_orcamentaria_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4279 (class 0 OID 0)
+-- Dependencies: 330
+-- Name: unidade_orcamentaria_id_seq; Type: SEQUENCE OWNED BY; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER SEQUENCE sefaz_rest.unidade_orcamentaria_id_seq OWNED BY sefaz_rest.unidade_orcamentaria.id;
+
+
+--
+-- TOC entry 4036 (class 2604 OID 3969521)
+-- Name: acao id; Type: DEFAULT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.acao ALTER COLUMN id SET DEFAULT nextval('sefaz_rest.acao_id_seq'::regclass);
+
+
+--
+-- TOC entry 4015 (class 2604 OID 3956846)
+-- Name: categoria_economica id; Type: DEFAULT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.categoria_economica ALTER COLUMN id SET DEFAULT nextval('sefaz_rest.categoria_economica_id_seq'::regclass);
+
+
+--
+-- TOC entry 4017 (class 2604 OID 3957149)
+-- Name: credor id; Type: DEFAULT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.credor ALTER COLUMN id SET DEFAULT nextval('sefaz_rest.credor_id_seq'::regclass);
+
+
+--
+-- TOC entry 4018 (class 2604 OID 3957160)
+-- Name: dispositivo_legal id; Type: DEFAULT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.dispositivo_legal ALTER COLUMN id SET DEFAULT nextval('sefaz_rest.dispositivo_legal_id_seq'::regclass);
+
+
+--
+-- TOC entry 4016 (class 2604 OID 3956942)
+-- Name: empenho_classificador id; Type: DEFAULT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.empenho_classificador ALTER COLUMN id SET DEFAULT nextval('sefaz_rest.empenho_classificador_id_seq'::regclass);
+
+
+--
+-- TOC entry 4020 (class 2604 OID 3957187)
+-- Name: fonte_recurso id; Type: DEFAULT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.fonte_recurso ALTER COLUMN id SET DEFAULT nextval('sefaz_rest.fonte_recurso_id_seq'::regclass);
+
+
+--
+-- TOC entry 4019 (class 2604 OID 3957175)
+-- Name: fonte_recurso_detalhe id; Type: DEFAULT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.fonte_recurso_detalhe ALTER COLUMN id SET DEFAULT nextval('sefaz_rest.fonte_recurso_detalhe_id_seq'::regclass);
+
+
+--
+-- TOC entry 4021 (class 2604 OID 3957204)
+-- Name: funcao id; Type: DEFAULT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.funcao ALTER COLUMN id SET DEFAULT nextval('sefaz_rest.funcao_id_seq'::regclass);
+
+
+--
+-- TOC entry 4022 (class 2604 OID 3957216)
+-- Name: grupo_natureza_despesa id; Type: DEFAULT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.grupo_natureza_despesa ALTER COLUMN id SET DEFAULT nextval('sefaz_rest.grupo_natureza_despesa_id_seq'::regclass);
+
+
+--
+-- TOC entry 4023 (class 2604 OID 3957231)
+-- Name: id_uso id; Type: DEFAULT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.id_uso ALTER COLUMN id SET DEFAULT nextval('sefaz_rest.id_uso_id_seq'::regclass);
+
+
+--
+-- TOC entry 4024 (class 2604 OID 3957260)
+-- Name: item_patrimonial id; Type: DEFAULT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.item_patrimonial ALTER COLUMN id SET DEFAULT nextval('sefaz_rest.item_patrimonial_id_seq'::regclass);
+
+
+--
+-- TOC entry 4038 (class 2604 OID 4014250)
+-- Name: liquidacao_documentos_fiscais id; Type: DEFAULT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.liquidacao_documentos_fiscais ALTER COLUMN id SET DEFAULT nextval('sefaz_rest.iquidacao_documentos_fiscais_id_seq'::regclass);
+
+
+--
+-- TOC entry 4037 (class 2604 OID 4014236)
+-- Name: liquidacao_retencao id; Type: DEFAULT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.liquidacao_retencao ALTER COLUMN id SET DEFAULT nextval('sefaz_rest.liquidacao_retencao_id_seq'::regclass);
+
+
+--
+-- TOC entry 4025 (class 2604 OID 3957275)
+-- Name: modalidade_aplicacao id; Type: DEFAULT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.modalidade_aplicacao ALTER COLUMN id SET DEFAULT nextval('sefaz_rest.modalidade_aplicacao_id_seq'::regclass);
+
+
+--
+-- TOC entry 4026 (class 2604 OID 3957296)
+-- Name: natureza_despesa id; Type: DEFAULT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.natureza_despesa ALTER COLUMN id SET DEFAULT nextval('sefaz_rest.natureza_despesa_id_seq'::regclass);
+
+
+--
+-- TOC entry 4027 (class 2604 OID 3957307)
+-- Name: natureza_receita id; Type: DEFAULT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.natureza_receita ALTER COLUMN id SET DEFAULT nextval('sefaz_rest.natureza_receita_id_seq'::regclass);
+
+
+--
+-- TOC entry 4028 (class 2604 OID 3957319)
+-- Name: produto id; Type: DEFAULT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.produto ALTER COLUMN id SET DEFAULT nextval('sefaz_rest.produto_id_seq'::regclass);
+
+
+--
+-- TOC entry 4029 (class 2604 OID 3957332)
+-- Name: programa_governo id; Type: DEFAULT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.programa_governo ALTER COLUMN id SET DEFAULT nextval('sefaz_rest.programa_governo_id_seq'::regclass);
+
+
+--
+-- TOC entry 4030 (class 2604 OID 3957344)
+-- Name: regiao_administrativa id; Type: DEFAULT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.regiao_administrativa ALTER COLUMN id SET DEFAULT nextval('sefaz_rest.regiao_administrativa_id_seq'::regclass);
+
+
+--
+-- TOC entry 4035 (class 2604 OID 3957438)
+-- Name: saldo_orcamentario id; Type: DEFAULT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.saldo_orcamentario ALTER COLUMN id SET DEFAULT nextval('sefaz_rest.saldo_orcamentario_id_seq'::regclass);
+
+
+--
+-- TOC entry 4031 (class 2604 OID 3957355)
+-- Name: subfuncao id; Type: DEFAULT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.subfuncao ALTER COLUMN id SET DEFAULT nextval('sefaz_rest.subfuncao_id_seq'::regclass);
+
+
+--
+-- TOC entry 4032 (class 2604 OID 3957366)
+-- Name: tipo_retencao id; Type: DEFAULT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.tipo_retencao ALTER COLUMN id SET DEFAULT nextval('sefaz_rest.tipo_retencao_id_seq'::regclass);
+
+
+--
+-- TOC entry 4039 (class 2604 OID 4045332)
+-- Name: token id; Type: DEFAULT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.token ALTER COLUMN id SET DEFAULT nextval('sefaz_rest.token_id_seq'::regclass);
+
+
+--
+-- TOC entry 4033 (class 2604 OID 3957382)
+-- Name: unidade_gestora id; Type: DEFAULT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.unidade_gestora ALTER COLUMN id SET DEFAULT nextval('sefaz_rest.unidade_gestora_id_seq'::regclass);
+
+
+--
+-- TOC entry 4034 (class 2604 OID 3957395)
+-- Name: unidade_orcamentaria id; Type: DEFAULT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.unidade_orcamentaria ALTER COLUMN id SET DEFAULT nextval('sefaz_rest.unidade_orcamentaria_id_seq'::regclass);
+
+
+--
+-- TOC entry 4083 (class 2606 OID 3969526)
+-- Name: acao acao_pkey; Type: CONSTRAINT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.acao
+    ADD CONSTRAINT acao_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4041 (class 2606 OID 3956851)
+-- Name: categoria_economica categoria_economica_pkey; Type: CONSTRAINT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.categoria_economica
+    ADD CONSTRAINT categoria_economica_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4045 (class 2606 OID 3957154)
+-- Name: credor credor_pkey; Type: CONSTRAINT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.credor
+    ADD CONSTRAINT credor_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4047 (class 2606 OID 3957165)
+-- Name: dispositivo_legal dispositivo_legal_pkey; Type: CONSTRAINT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.dispositivo_legal
+    ADD CONSTRAINT dispositivo_legal_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4043 (class 2606 OID 3956947)
+-- Name: empenho_classificador empenho_classificador_pkey; Type: CONSTRAINT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.empenho_classificador
+    ADD CONSTRAINT empenho_classificador_pkey PRIMARY KEY (id_empenho);
+
+
+--
+-- TOC entry 4049 (class 2606 OID 3957180)
+-- Name: fonte_recurso_detalhe fonte_recurso_detalhe_pkey; Type: CONSTRAINT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.fonte_recurso_detalhe
+    ADD CONSTRAINT fonte_recurso_detalhe_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4051 (class 2606 OID 3957192)
+-- Name: fonte_recurso fonte_recurso_pkey; Type: CONSTRAINT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.fonte_recurso
+    ADD CONSTRAINT fonte_recurso_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4053 (class 2606 OID 3957209)
+-- Name: funcao funcao_pkey; Type: CONSTRAINT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.funcao
+    ADD CONSTRAINT funcao_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4055 (class 2606 OID 3957221)
+-- Name: grupo_natureza_despesa grupo_natureza_despesa_pkey; Type: CONSTRAINT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.grupo_natureza_despesa
+    ADD CONSTRAINT grupo_natureza_despesa_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4057 (class 2606 OID 3957236)
+-- Name: id_uso id_uso_pkey; Type: CONSTRAINT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.id_uso
+    ADD CONSTRAINT id_uso_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4087 (class 2606 OID 4014255)
+-- Name: liquidacao_documentos_fiscais iquidacao_documentos_fiscais_pkey; Type: CONSTRAINT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.liquidacao_documentos_fiscais
+    ADD CONSTRAINT iquidacao_documentos_fiscais_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4059 (class 2606 OID 3957265)
+-- Name: item_patrimonial item_patrimonial_pkey; Type: CONSTRAINT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.item_patrimonial
+    ADD CONSTRAINT item_patrimonial_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4085 (class 2606 OID 4014353)
+-- Name: liquidacao_retencao liquidacao_retencao_pkey; Type: CONSTRAINT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.liquidacao_retencao
+    ADD CONSTRAINT liquidacao_retencao_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4061 (class 2606 OID 3957280)
+-- Name: modalidade_aplicacao modalidade_aplicacao_pkey; Type: CONSTRAINT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.modalidade_aplicacao
+    ADD CONSTRAINT modalidade_aplicacao_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4063 (class 2606 OID 3957301)
+-- Name: natureza_despesa natureza_despesa_rest_pkey; Type: CONSTRAINT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.natureza_despesa
+    ADD CONSTRAINT natureza_despesa_rest_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4065 (class 2606 OID 3957312)
+-- Name: natureza_receita natureza_receita_pkey; Type: CONSTRAINT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.natureza_receita
+    ADD CONSTRAINT natureza_receita_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4067 (class 2606 OID 3957324)
+-- Name: produto produto_pkey; Type: CONSTRAINT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.produto
+    ADD CONSTRAINT produto_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4069 (class 2606 OID 3957337)
+-- Name: programa_governo programa_governo_pkey; Type: CONSTRAINT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.programa_governo
+    ADD CONSTRAINT programa_governo_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4071 (class 2606 OID 3957349)
+-- Name: regiao_administrativa regiao_administrativa_pkey; Type: CONSTRAINT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.regiao_administrativa
+    ADD CONSTRAINT regiao_administrativa_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4081 (class 2606 OID 3957443)
+-- Name: saldo_orcamentario saldo_orcamentario_pkey; Type: CONSTRAINT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.saldo_orcamentario
+    ADD CONSTRAINT saldo_orcamentario_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4073 (class 2606 OID 3957360)
+-- Name: subfuncao subfuncao_pkey; Type: CONSTRAINT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.subfuncao
+    ADD CONSTRAINT subfuncao_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4075 (class 2606 OID 3957371)
+-- Name: tipo_retencao tipo_retencao_pkey; Type: CONSTRAINT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.tipo_retencao
+    ADD CONSTRAINT tipo_retencao_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4089 (class 2606 OID 4045337)
+-- Name: token token_pkey; Type: CONSTRAINT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.token
+    ADD CONSTRAINT token_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4077 (class 2606 OID 3957387)
+-- Name: unidade_gestora unidade_gestora_pkey; Type: CONSTRAINT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.unidade_gestora
+    ADD CONSTRAINT unidade_gestora_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4079 (class 2606 OID 3957400)
+-- Name: unidade_orcamentaria unidade_orcamentaria_pkey; Type: CONSTRAINT; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER TABLE ONLY sefaz_rest.unidade_orcamentaria
+    ADD CONSTRAINT unidade_orcamentaria_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 4226 (class 0 OID 0)
+-- Dependencies: 9
+-- Name: SCHEMA sefaz_rest; Type: ACL; Schema: -; Owner: postgres
+--
+
+GRANT USAGE ON SCHEMA sefaz_rest TO cgedes WITH GRANT OPTION;
+
+
+--
+-- TOC entry 4227 (class 0 OID 0)
+-- Dependencies: 335
+-- Name: TABLE acao; Type: ACL; Schema: sefaz_rest; Owner: postgres
+--
+
+GRANT SELECT ON TABLE sefaz_rest.acao TO cgedes WITH GRANT OPTION;
+
+
+--
+-- TOC entry 4229 (class 0 OID 0)
+-- Dependencies: 293
+-- Name: TABLE categoria_economica; Type: ACL; Schema: sefaz_rest; Owner: postgres
+--
+
+GRANT SELECT ON TABLE sefaz_rest.categoria_economica TO cgedes;
+
+
+--
+-- TOC entry 4231 (class 0 OID 0)
+-- Dependencies: 297
+-- Name: TABLE credor; Type: ACL; Schema: sefaz_rest; Owner: postgres
+--
+
+GRANT SELECT ON TABLE sefaz_rest.credor TO cgedes;
+
+
+--
+-- TOC entry 4233 (class 0 OID 0)
+-- Dependencies: 299
+-- Name: TABLE dispositivo_legal; Type: ACL; Schema: sefaz_rest; Owner: postgres
+--
+
+GRANT SELECT ON TABLE sefaz_rest.dispositivo_legal TO cgedes;
+
+
+--
+-- TOC entry 4235 (class 0 OID 0)
+-- Dependencies: 336
+-- Name: TABLE empenho; Type: ACL; Schema: sefaz_rest; Owner: postgres
+--
+
+GRANT SELECT ON TABLE sefaz_rest.empenho TO cgedes WITH GRANT OPTION;
+
+
+--
+-- TOC entry 4236 (class 0 OID 0)
+-- Dependencies: 295
+-- Name: TABLE empenho_classificador; Type: ACL; Schema: sefaz_rest; Owner: postgres
+--
+
+GRANT SELECT ON TABLE sefaz_rest.empenho_classificador TO cgedes;
+
+
+--
+-- TOC entry 4238 (class 0 OID 0)
+-- Dependencies: 303
+-- Name: TABLE fonte_recurso; Type: ACL; Schema: sefaz_rest; Owner: postgres
+--
+
+GRANT SELECT ON TABLE sefaz_rest.fonte_recurso TO cgedes;
+
+
+--
+-- TOC entry 4239 (class 0 OID 0)
+-- Dependencies: 301
+-- Name: TABLE fonte_recurso_detalhe; Type: ACL; Schema: sefaz_rest; Owner: postgres
+--
+
+GRANT SELECT ON TABLE sefaz_rest.fonte_recurso_detalhe TO cgedes;
+
+
+--
+-- TOC entry 4242 (class 0 OID 0)
+-- Dependencies: 305
+-- Name: TABLE funcao; Type: ACL; Schema: sefaz_rest; Owner: postgres
+--
+
+GRANT SELECT ON TABLE sefaz_rest.funcao TO cgedes;
+
+
+--
+-- TOC entry 4244 (class 0 OID 0)
+-- Dependencies: 307
+-- Name: TABLE grupo_natureza_despesa; Type: ACL; Schema: sefaz_rest; Owner: postgres
+--
+
+GRANT SELECT ON TABLE sefaz_rest.grupo_natureza_despesa TO cgedes;
+
+
+--
+-- TOC entry 4246 (class 0 OID 0)
+-- Dependencies: 309
+-- Name: TABLE id_uso; Type: ACL; Schema: sefaz_rest; Owner: postgres
+--
+
+GRANT SELECT ON TABLE sefaz_rest.id_uso TO cgedes;
+
+
+--
+-- TOC entry 4248 (class 0 OID 0)
+-- Dependencies: 341
+-- Name: TABLE liquidacao_documentos_fiscais; Type: ACL; Schema: sefaz_rest; Owner: postgres
+--
+
+GRANT SELECT ON TABLE sefaz_rest.liquidacao_documentos_fiscais TO cgedes WITH GRANT OPTION;
+
+
+--
+-- TOC entry 4250 (class 0 OID 0)
+-- Dependencies: 311
+-- Name: TABLE item_patrimonial; Type: ACL; Schema: sefaz_rest; Owner: postgres
+--
+
+GRANT SELECT ON TABLE sefaz_rest.item_patrimonial TO cgedes;
+
+
+--
+-- TOC entry 4252 (class 0 OID 0)
+-- Dependencies: 337
+-- Name: TABLE liquidacao; Type: ACL; Schema: sefaz_rest; Owner: postgres
+--
+
+GRANT SELECT ON TABLE sefaz_rest.liquidacao TO cgedes WITH GRANT OPTION;
+
+
+--
+-- TOC entry 4253 (class 0 OID 0)
+-- Dependencies: 339
+-- Name: TABLE liquidacao_retencao; Type: ACL; Schema: sefaz_rest; Owner: postgres
+--
+
+GRANT SELECT ON TABLE sefaz_rest.liquidacao_retencao TO cgedes WITH GRANT OPTION;
+
+
+--
+-- TOC entry 4255 (class 0 OID 0)
+-- Dependencies: 313
+-- Name: TABLE modalidade_aplicacao; Type: ACL; Schema: sefaz_rest; Owner: postgres
+--
+
+GRANT SELECT ON TABLE sefaz_rest.modalidade_aplicacao TO cgedes;
+
+
+--
+-- TOC entry 4257 (class 0 OID 0)
+-- Dependencies: 315
+-- Name: TABLE natureza_despesa; Type: ACL; Schema: sefaz_rest; Owner: postgres
+--
+
+GRANT SELECT ON TABLE sefaz_rest.natureza_despesa TO cgedes;
+
+
+--
+-- TOC entry 4259 (class 0 OID 0)
+-- Dependencies: 317
+-- Name: TABLE natureza_receita; Type: ACL; Schema: sefaz_rest; Owner: postgres
+--
+
+GRANT SELECT ON TABLE sefaz_rest.natureza_receita TO cgedes;
+
+
+--
+-- TOC entry 4261 (class 0 OID 0)
+-- Dependencies: 342
+-- Name: TABLE ordem_bancaria_orcamentaria; Type: ACL; Schema: sefaz_rest; Owner: postgres
+--
+
+GRANT SELECT ON TABLE sefaz_rest.ordem_bancaria_orcamentaria TO cgedes WITH GRANT OPTION;
+
+
+--
+-- TOC entry 4262 (class 0 OID 0)
+-- Dependencies: 319
+-- Name: TABLE produto; Type: ACL; Schema: sefaz_rest; Owner: postgres
+--
+
+GRANT SELECT ON TABLE sefaz_rest.produto TO cgedes;
+
+
+--
+-- TOC entry 4264 (class 0 OID 0)
+-- Dependencies: 321
+-- Name: TABLE programa_governo; Type: ACL; Schema: sefaz_rest; Owner: postgres
+--
+
+GRANT SELECT ON TABLE sefaz_rest.programa_governo TO cgedes;
+
+
+--
+-- TOC entry 4266 (class 0 OID 0)
+-- Dependencies: 323
+-- Name: TABLE regiao_administrativa; Type: ACL; Schema: sefaz_rest; Owner: postgres
+--
+
+GRANT SELECT ON TABLE sefaz_rest.regiao_administrativa TO cgedes;
+
+
+--
+-- TOC entry 4268 (class 0 OID 0)
+-- Dependencies: 333
+-- Name: TABLE saldo_orcamentario; Type: ACL; Schema: sefaz_rest; Owner: postgres
+--
+
+GRANT SELECT ON TABLE sefaz_rest.saldo_orcamentario TO cgedes;
+
+
+--
+-- TOC entry 4270 (class 0 OID 0)
+-- Dependencies: 325
+-- Name: TABLE subfuncao; Type: ACL; Schema: sefaz_rest; Owner: postgres
+--
+
+GRANT SELECT ON TABLE sefaz_rest.subfuncao TO cgedes;
+
+
+--
+-- TOC entry 4272 (class 0 OID 0)
+-- Dependencies: 327
+-- Name: TABLE tipo_retencao; Type: ACL; Schema: sefaz_rest; Owner: postgres
+--
+
+GRANT SELECT ON TABLE sefaz_rest.tipo_retencao TO cgedes;
+
+
+--
+-- TOC entry 4274 (class 0 OID 0)
+-- Dependencies: 344
+-- Name: TABLE token; Type: ACL; Schema: sefaz_rest; Owner: postgres
+--
+
+GRANT SELECT ON TABLE sefaz_rest.token TO cgedes WITH GRANT OPTION;
+
+
+--
+-- TOC entry 4276 (class 0 OID 0)
+-- Dependencies: 329
+-- Name: TABLE unidade_gestora; Type: ACL; Schema: sefaz_rest; Owner: postgres
+--
+
+GRANT SELECT ON TABLE sefaz_rest.unidade_gestora TO cgedes;
+
+
+--
+-- TOC entry 4278 (class 0 OID 0)
+-- Dependencies: 331
+-- Name: TABLE unidade_orcamentaria; Type: ACL; Schema: sefaz_rest; Owner: postgres
+--
+
+GRANT SELECT ON TABLE sefaz_rest.unidade_orcamentaria TO cgedes;
+
+
+--
+-- TOC entry 2147 (class 826 OID 4056989)
+-- Name: DEFAULT PRIVILEGES FOR SEQUENCES; Type: DEFAULT ACL; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA sefaz_rest GRANT SELECT ON SEQUENCES  TO cgedes;
+
+
+--
+-- TOC entry 2146 (class 826 OID 3960061)
+-- Name: DEFAULT PRIVILEGES FOR TABLES; Type: DEFAULT ACL; Schema: sefaz_rest; Owner: postgres
+--
+
+ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA sefaz_rest GRANT SELECT ON TABLES  TO cgedes WITH GRANT OPTION;
+
+
+-- Completed on 2022-01-11 14:39:03 UTC
+
+--
+-- PostgreSQL database dump complete
+--
+

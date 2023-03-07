@@ -1,0 +1,31 @@
+#
+# Arquivo de localização principal da aplicação. Contém informações básicas
+# e compartilhadas por diversas partes da aplicação.
+#
+# As localizações gerais ficam organizadas como as funcionalidades da aplicação,
+# ou seja, models, controllers, ...;
+#
+
+pt-BR:
+  app:
+    author: 'Controladoria Geral do Estado do Ceará'
+    copyright: '© %{year} - Governo do Estado do Ceará. Todos os direitos reservados.'
+    description: 'Sistema Público de Relacionamento com o Cidadão.'
+    title: 'Sistema Público de Relacionamento com o Cidadão do Ceará'
+
+    unauthorized_message: Você não tem permissão de acesso
+
+    logout: Sair
+    login: Acessar
+    home: Início
+
+    breadcrumb:
+      title: Ir para %{title}
+
+    env:
+      stage:
+        label: Você está em ambiente de
+        dev: Desenvolvimento
+        qa: QA
+        demo: Demonstração
+

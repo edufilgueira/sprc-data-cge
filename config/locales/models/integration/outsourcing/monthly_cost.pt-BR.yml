@@ -1,0 +1,23 @@
+pt-BR:
+  transparency:
+    outsourcing:
+      monthly_costs:
+        presenter:
+          header:
+            nome: Nome
+            orgao: Órgão
+            categoria: Categoria
+            vlr_salario_base: Salário Base
+            vlr_custo_total: Custo Total
+            vlr_adicional: Adicional
+            vlr_adicional_noturno: Adicional Noturno
+            vlr_insalubridade: Insalubridade
+            vlr_periculosidade: Periculosidade
+            vlr_vale_transporte: Vale Transporte
+            vlr_vale_refeicao: Vale Refeição
+            vlr_cesta_basica: Cesta Basica
+            vlr_hora_extra: Hora Extra
+            vlr_dsr: Descanço Semanal Remunerado
+            nome_contratante: Contratante
+            remuneracao: Remuneração
+        undefined_category: NÃO INFORMADO
